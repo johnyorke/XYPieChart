@@ -213,7 +213,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         NSNumber *percentage = _radiusPercentages[index];
         
         if (percentage.floatValue > 0) {
-            CGFloat radius = ((self.frame.size.width / 2) * percentage.floatValue);
+            CGFloat radius = ((self.frame.size.width / 2.5) * percentage.floatValue);
             return radius;
         }
     }
