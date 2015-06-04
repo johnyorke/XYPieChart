@@ -209,16 +209,10 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 
 - (CGFloat)pieRadiusForIndex:(NSUInteger)index
 {
-    if (_radiusPercentages.count > 0) {
-        NSNumber *percentage = _radiusPercentages[index];
-        
-        if (percentage.floatValue > 0) {
-            CGFloat radius = ((self.frame.size.height / 2.1) * percentage.floatValue);
-            return radius;
-        }
-    }
+    CGFloat percentage = [self.dataSource piechart:self heightForSliceAtIndex:index];
+    CGFloat radius = ((self.frame.size.height / 2.1) * percentage);
     
-    return _pieRadius;
+    return radius;
 }
 
 - (void)setPieRadius:(CGFloat)pieRadius

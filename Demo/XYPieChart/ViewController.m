@@ -201,6 +201,11 @@
     return [[self.slices objectAtIndex:index] intValue];
 }
 
+- (CGFloat)piechart:(XYPieChart *)pieChart heightForSliceAtIndex:(NSUInteger)index
+{
+    return 1.0;
+}
+
 - (UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index
 {
     if(pieChart == self.pieChartRight) return nil;

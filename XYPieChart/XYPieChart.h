@@ -33,6 +33,9 @@
 @required
 - (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart;
 - (CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index;
+/// For circular graph return 1.0. For variable radius slices return percentage.
+/// eg. for half height slice return 0.5.
+- (CGFloat)piechart:(XYPieChart *)pieChart heightForSliceAtIndex:(NSUInteger)index;
 @optional
 - (UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index;
 - (NSString *)pieChart:(XYPieChart *)pieChart textForSliceAtIndex:(NSUInteger)index;
@@ -61,7 +64,6 @@
 @property(nonatomic, assign) CGFloat selectedSliceStroke;
 @property(nonatomic, assign) CGFloat selectedSliceOffsetRadius;
 @property(nonatomic, assign) BOOL    showPercentage;
-@property (nonatomic, copy) NSArray *radiusPercentages;
 - (id)initWithFrame:(CGRect)frame Center:(CGPoint)center Radius:(CGFloat)radius;
 - (void)reloadData;
 - (void)setPieBackgroundColor:(UIColor *)color;
